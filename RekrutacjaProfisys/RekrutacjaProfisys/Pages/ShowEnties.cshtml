@@ -1,0 +1,52 @@
+﻿@page
+@using RekrutacjaProfisys.Entities
+
+@using RekrutacjaProfisys.Pages
+@model ShowEntiesModel
+
+<h1>Import Data</h1>
+
+@if (!string.IsNullOrEmpty(TempData["Message"]?.ToString()))
+{
+    <div>@TempData["Message"]</div>
+}
+
+<form method="post">
+    <button type="submit" class="btn btn-primary">Import data</button>
+</form>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var dok in Model.Dokuments)
+        {
+            <tr>
+                <td>@dok.Id</td>
+                <td>@dok.Type</td>
+                <td>@dok.Date</td>
+                <td>@dok.FirstName</td>
+                <td>@dok.LastName</td>
+                <td>@dok.City</td>
+                <td><a asp-page="/ShowItems" asp-route-id="@dok.Id" class="btn btn-outline-secondary" style="margin-top: 10px;">
+                                    Sprawdz zamowienia </a></td>
+                 
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table, table * {border: 1px solid black}
+</style>

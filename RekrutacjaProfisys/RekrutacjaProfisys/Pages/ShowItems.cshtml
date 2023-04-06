@@ -1,0 +1,36 @@
+﻿@page
+@model RekrutacjaProfisys.Pages.ShowItemsModel
+@{
+}
+<table>
+    <thead>
+        <tr>
+            <th>DocumentId</th>
+            <th>Ordinal</th>
+            <th>Price</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>TaxRate</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+       @foreach (var dok1 in Model.DokumentItems1)
+        {
+            <tr>
+                <td>@dok1.DocumentId</td>
+                <td>@dok1.Ordinal</td>
+                <td>@dok1.Price</td>
+                <td>@dok1.Product</td>
+                <td>@dok1.Quantity</td>
+                <td>@dok1.TaxRate</td>
+
+                 
+            </tr>
+        }
+        <tbody>
+</table>
+
+<style>
+    table, table * {border: 1px solid black}
+</style>
